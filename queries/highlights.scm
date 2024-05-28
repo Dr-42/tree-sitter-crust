@@ -5,17 +5,17 @@
 ;; Keywords
 [
   (type_alias) @keyword
-  (while) @keyword
-  (for) @keyword
-  (if) @keyword
-  (else) @keyword
-  (ret) @keyword
-  (cont) @keyword
-  (brk) @keyword
-  (struct) @keyword
-  (fnc) @keyword
-  (trait) @keyword
-  (impl) @keyword
+  "while" @keyword
+  "for" @keyword
+  "if" @keyword
+  "else" @keyword
+  "ret" @keyword
+  "cont" @keyword
+  "brk" @keyword
+  "struct" @keyword
+  "fnc" @keyword
+  "trait" @keyword
+  "impl" @keyword
 ]
 
 ;; Types
@@ -85,6 +85,6 @@
 
 ;; Comments (add this rule if your language supports comments)
 ;; For example, assuming `//` starts a comment:
-;; [
-;;   (comment) @comment
-;; ]
+[
+   (comment) @comment
+]

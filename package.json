@@ -1,7 +1,8 @@
 {
   "devDependencies": {
     "tree-sitter-cli": "^0.22.6",
-    "prebuildify": "^6.0.0"
+    "prebuildify": "^6.0.0",
+    "highlight-tree-sitter": "^1.0.0"
   },
   "dependencies": {
     "node-addon-api": "^7.1.0",
@@ -46,7 +47,8 @@
   "tree-sitter": [
     {
       "scope": "source.crust",
-      "injection-regex": "^crust$"
+      "injection-regex": "^crust$",
+      "highlights": "./queries/highlights.scm"
     }
   ]
 }
