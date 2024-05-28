@@ -16,6 +16,7 @@ module.exports = grammar({
       $.break,
       $.continue,
       $.struct_decl,
+      $.enum_decl,
       $.fn_decl,
       $.trait_decl,
       $.var_assign,
@@ -23,7 +24,8 @@ module.exports = grammar({
       $.struct_assign,
       $.struct_member_assign,
       $.array_member_assign,
-      $.trait_assign
+      $.trait_assign,
+      $.match,
     ),
 
     type_alias: $ => seq('type', $.type, "is", $.iden, ';'),
@@ -48,6 +50,7 @@ module.exports = grammar({
       prec.left(3, $.unary_op),
       prec.left(4, $.binary_op),
       prec.left(5, $.array_literal),
+      prec.left(6, $.enum_literal),
     ),
 
     numeric: $ => token(/[0-9]+/),
@@ -99,6 +102,8 @@ module.exports = grammar({
       seq('[', ']'),
       seq('[', $.expr, repeat1(seq(',', $.expr)), ']'),
     ),
+
+    enum_literal: $ => seq($.iden, '::', $.iden),
 
     call: $ => choice(
       seq($.iden, '(', ')'),
@@ -206,6 +211,9 @@ module.exports = grammar({
       seq('struct', $.iden, '{', $.var_decl, repeat(seq($.var_decl, ',')), '}'),
       seq('struct', $.iden, '<', $.generic_decl, '>', '{', $.var_decl, repeat(seq($.var_decl, ',')), '}'),
     ),
+
+    enum_decl: $ => seq('enum', $.iden, '{', $.iden, repeat(seq(',', $.iden)), '}'),
+
     fn_decl: $ => choice(
       seq('fnc', $.iden, '(', ')', ':', $.type, $.block),
       seq('fnc', $.iden, '(', repeat1(seq($.var_decl, ',')), ')', ':', $.type, $.block),
@@ -267,6 +275,10 @@ module.exports = grammar({
     ),
 
     trait_assign: $ => seq('impl', $.iden, 'for', $.type, '{', repeat1($.fn_decl), '}'),
+
+    match: $ => seq('match', '(', $.expr, ')', '{', repeat1($.match_case), '}'),
+
+    match_case: $ => seq($.expr, '=>', $.stmt),
 
     comment: $ =>
       token(/\/\/.*/),

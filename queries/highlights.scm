@@ -13,9 +13,12 @@
   "cont" @keyword
   "brk" @keyword
   "struct" @keyword
+  "enum" @keyword
   "fnc" @keyword
   "trait" @keyword
   "impl" @keyword
+  "match" @keyword
+  "case" @keyword
 ]
 
 ;; Types
