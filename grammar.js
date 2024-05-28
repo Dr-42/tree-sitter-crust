@@ -278,7 +278,7 @@ module.exports = grammar({
 
     match: $ => seq('match', '(', $.expr, ')', '{', repeat1($.match_case), '}'),
 
-    match_case: $ => seq($.expr, '=>', $.stmt),
+    match_case: $ => seq('case', $.expr, '=>', $.stmt),
 
     comment: $ =>
       token(/\/\/.*/),

@@ -203,6 +203,36 @@
     }
   },
   {
+    "type": "enum_decl",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "iden",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "enum_literal",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "iden",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "expr",
     "named": true,
     "fields": {},
@@ -224,6 +254,10 @@
         },
         {
           "type": "bracketed",
+          "named": true
+        },
+        {
+          "type": "enum_literal",
           "named": true
         },
         {
@@ -369,6 +403,44 @@
         },
         {
           "type": "iden",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "match",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "expr",
+          "named": true
+        },
+        {
+          "type": "match_case",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "match_case",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "expr",
+          "named": true
+        },
+        {
+          "type": "stmt",
           "named": true
         }
       ]
@@ -572,6 +644,10 @@
           "named": true
         },
         {
+          "type": "enum_decl",
+          "named": true
+        },
+        {
           "type": "expr",
           "named": true
         },
@@ -585,6 +661,10 @@
         },
         {
           "type": "if",
+          "named": true
+        },
+        {
+          "type": "match",
           "named": true
         },
         {
@@ -1010,6 +1090,10 @@
     "named": false
   },
   {
+    "type": "::",
+    "named": false
+  },
+  {
     "type": ";",
     "named": false
   },
@@ -1031,6 +1115,10 @@
   },
   {
     "type": "==",
+    "named": false
+  },
+  {
+    "type": "=>",
     "named": false
   },
   {
@@ -1070,6 +1158,10 @@
     "named": false
   },
   {
+    "type": "case",
+    "named": false
+  },
+  {
     "type": "chr",
     "named": false
   },
@@ -1087,6 +1179,10 @@
   },
   {
     "type": "else",
+    "named": false
+  },
+  {
+    "type": "enum",
     "named": false
   },
   {
@@ -1147,6 +1243,10 @@
   },
   {
     "type": "is",
+    "named": false
+  },
+  {
+    "type": "match",
     "named": false
   },
   {
