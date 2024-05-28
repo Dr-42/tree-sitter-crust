@@ -1,0 +1,52 @@
+{
+  "devDependencies": {
+    "tree-sitter-cli": "^0.22.6",
+    "prebuildify": "^6.0.0"
+  },
+  "dependencies": {
+    "node-addon-api": "^7.1.0",
+    "node-gyp-build": "^4.8.0"
+  },
+  "peerDependencies": {
+    "tree-sitter": "^0.21.0"
+  },
+  "peerDependenciesMeta": {
+    "tree_sitter": {
+      "optional": true
+    }
+  },
+  "name": "tree-sitter-crust",
+  "version": "1.0.0",
+  "description": "Tree sitter for crust",
+  "main": "index.js",
+  "types": "bindings/node",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "install": "node-gyp-build",
+    "prebuildify": "prebuildify --napi --strip"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dr-42/tree-sitter-crust.git"
+  },
+  "author": "Dr-42",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/Dr-42/tree-sitter-crust/issues"
+  },
+  "homepage": "https://github.com/Dr-42/tree-sitter-crust#readme",
+  "files": [
+    "grammar.js",
+    "binding.gyp",
+    "prebuilds/**",
+    "bindings/node/*",
+    "queries/*",
+    "src/**"
+  ],
+  "tree-sitter": [
+    {
+      "scope": "source.crust",
+      "injection-regex": "^crust$"
+    }
+  ]
+}
